@@ -1,4 +1,4 @@
-HHiSSpred Copyright (C) 2012 by Mensur Dlakic
+**HHiSSpred Copyright (C) 2012 by Mensur Dlakic**
 
 These are short instructions about installing and testing HHiSSpred. More 
 details will be available when the work is accepted for publication. Among
@@ -14,7 +14,7 @@ directory. In each of them 1-3 variables have to be set. The most common
 parameter to customize in all classifier scripts is the directory where
 HHiSSpred is located. Specifically, change the line that reads:
 
-set HHSVMHOME = "$HOME/HHiSSpred"
+set HHISPRED = "$HOME/HHiSSpred"
 
 You can leave it like that if the distribution was unpacked in your $HOME 
 directory, or provide the full path within quotation marks. 
@@ -29,9 +29,9 @@ We use UniProt filteredat 90% identity which can be downloaded here:
 ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref90/uniref90.fasta.gz
 
 This database first has to be filtered using PFILT, which is part of the
-PSIPRED package:
+PSIPRED package and can be downloaded here:
 
-http://bioinfadmin.cs.ucl.ac.uk/downloads/psipred/
+http://bioinfadmin.cs.ucl.ac.uk/downloads/pfilt/
 
 Finally, PFILT-processed database has to be formated for use with PSI-BLAST.
 
@@ -42,22 +42,22 @@ set UNIPDB = "$HOME/db/uniprot20_02Sep11"
 
 We use uniprot20_02Sep11 which can be downloaded here:
 
-ftp://toolkit.lmb.uni-muenchen.de/HHblits/databases/hhsuite_dbs/
+http://wwwuser.gwdg.de/~compbiol/data/hhsuite/databases/hhsuite_dbs/
 
-This group of programs DO NOT work with BLAST+ executables. We use BLAST
+HHiSSpred **DOES NOT** work with BLAST+ executables. We use BLAST
 version 2.2.19 and that is the only version that is guaranteed to reproduce
 our results. HHiSSpred uses blastpgp and makemat.
 
 Another requirement is HHsuite of programs which can be downloaded here:
 
-ftp://toolkit.lmb.uni-muenchen.de/HHblits/releases/
+https://github.com/soedinglab/hh-suite/releases
 
 HHiSSpred needs hhblits, hhmake, hhfilter and the perl script reformat.pl, all
 of which are part of HHsuite. Versions 2.0.9 and above are all tested and should
 work. All HHsuite and BLAST programs are expected to be in the path and the
 scripts will not work if they cannot be found.
 
-Once all variables are set, copy HHiSSpred-*.com scripts into a directory 
+Once all variables are set, copy HHiSSpred-??.com scripts into a directory 
 that is in your $PATH. If you have root privilege, it will probably be 
 /usr/local/bin or something like that. If not, copy into a directory in 
 the $PATH to which you have writing access.
@@ -66,10 +66,10 @@ The package can be tested by going to test directory and typing:
 
 ./test.sh
 
-That should give several .ss files (final predictions are in *-2nd.ss). Compare
+That should give several .ss files (final predictions are in ??-2nd.ss). Compare
 those files to .ss files in examples directory.
 
-What do individual scripts do?
+**What do individual scripts do?**
 
 HHiSSpred-chk.com runs HHblits, converts its alignment into .chk files by using
 PSI-BLAST, and predicts secondary structures based on those .chk files. Final
